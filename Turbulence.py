@@ -335,6 +335,13 @@
 # model.add(Dropout(0.2))
 # model.add(Dense(3, activation='softmax'))
 #
+# Test loss: 0.386683792073
+# Test accuracy: 0.82841809165 (max around 0.8455)
+# Calm Test loss: 0.046252482396
+# Calm Test accuracy: 1.0
+# Turbulent Test loss: 0.459521576364
+# Turbulent Test accuracy: 0.788030181484
+#
 # Today, on June 15, 2017, I, Sagni(c)k Bhattacharya, am committing this code on GitHub.
 #
 # Project started on May 27, 2017 by Sagni(c)k Bhattacharya.
