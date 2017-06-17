@@ -319,6 +319,29 @@
 #
 # ---------------------------------------------------------------------------------------------------
 #
+# batch_size = 50
+#
+# Test loss: 0.354188750672
+# Test accuracy: 0.839630161616 (max around 0.8429)
+# Calm Test loss: 0.0697081955129
+# Calm Test accuracy: 1.0
+# Turbulent Test loss: 0.42392697862
+# Turbulent Test accuracy: 0.800308980824
+#
+#
+# model.add(Dense(28, activation='tanh', input_dim=500))
+# model.add(Dropout(0.2))
+# model.add(Dense(10, activation='tanh'))
+# model.add(Dropout(0.2))
+# model.add(Dense(3, activation='softmax'))
+#
+# Test loss: 0.386683792073
+# Test accuracy: 0.82841809165 (max around 0.8455)
+# Calm Test loss: 0.046252482396
+# Calm Test accuracy: 1.0
+# Turbulent Test loss: 0.459521576364
+# Turbulent Test accuracy: 0.788030181484
+#
 # Today, on June 15, 2017, I, Sagni(c)k Bhattacharya, am committing this code on GitHub.
 #
 # Project started on May 27, 2017 by Sagni(c)k Bhattacharya.
@@ -333,13 +356,13 @@ from keras import initializers
 
 # hyperparameters
 epochs = 25000
-batch_size = 60
+batch_size = 50
 
 # During hyperparameter optimization, this helps keep track of the version
 # of code being run. Every time I make a change to a hyperparamter, I
 # appropriately change the version name and number.
 print("")
-print("VERSION Valid.2")
+print("VERSION Layers2810.0")
 
 # loading the datasets
 print("Loading data...")
@@ -375,7 +398,7 @@ print("Building the model...")
 model = Sequential()
 model.add(Dense(28, activation='tanh', input_dim=500))
 model.add(Dropout(0.2))
-model.add(Dense(8, activation='tanh'))
+model.add(Dense(10, activation='tanh'))
 model.add(Dropout(0.2))
 # model.add(Dense(5, activation='softplus')) # a brief experiment with 3 hidden layers...
 # model.add(Dropout(0.2))                    # ...that didn't go well.
@@ -418,4 +441,4 @@ print("Calm Test accuracy:", score1[1])
 # If you want to save a model that you've trained, then you can use the following
 # line of code.
 
-# model.save('Turbulence_Model.h5')
+model.save('Turbulence_Model_2.h5')
