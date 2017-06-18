@@ -7,9 +7,10 @@ This is a neural network to determine if an airplane is flying through very turb
 
 I prepared the Turbulence_Training.csv dataset myself, by recording accelerometer data from my phone while flying from New Delhi to San Francisco. I made quite a few recordings, but chose a three-minute-long file with a mix of all three kinds of data, and then (arguably foolishly) manually labelled the 37000+ data points as Turb, MTurb or Calm (for  turbulent, moderately turbulent, and calm weather respectively).
 
-Here, I have documented all the changes that I have made to the hyperparmeters. In each case, I have included only those snippet of code that I have changed, and included the accuracy and loss for each one after training.
+
 
 ## The Training Runs (Hyperparameter Optimization)
+Here, I have documented all the changes that I have made to the hyperparmeters. In each case, I have included only those snippets of code that I have changed, and included the accuracy and loss for each one after training.
 #### Run 1
 ```python
 epochs = 1000, batch_size = 100,
@@ -178,6 +179,7 @@ model.add(Dense(4, activation='softplus'))
 model.add(Dropout(0.2))
 model.add(Dense(3, activation='softmax'))
 ```
+---
 *This model learnt nothing in 5000 epochs due to the enormous amounts of dropout.*
 
 *I think that the reason that the model is not training properly is that the input layer
@@ -245,7 +247,6 @@ model.summary()
 sgd = SGD(lr=1000.0, decay=0.001, momentum=1.0e-1, nesterov=False)
 model.compile(optimizer='adagrad', loss='binary_crossentropy', metrics=['accuracy'])
 ```
---------------------------------------------------------------------------------------------------------------------
 
 *Test loss: 0.43035825716  
 Test accuracy: 0.790876241158 (max around 0.7937)*
@@ -270,7 +271,7 @@ model.add(Dense(10, activation='tanh'))
 model.add(Dropout(0.2))
 model.add(Dense(3, activation='softmax'))
 
- model.compile(optimizer='adadelta', loss='binary_crossentropy', metrics=['accuracy'])
+model.compile(optimizer='adadelta', loss='binary_crossentropy', metrics=['accuracy'])
 ```
 
 *Test loss: 0.344701589349  
@@ -287,14 +288,14 @@ model.add(Dense(3, activation='softmax'))
 
 *Test loss: 0.353813521501  
 Test accuracy: 0.837770340185*
-
+---
 *Something to be noted about this training run is that the Test Accuracy was actually lower
 than the accuracy on the training data. Possibly, this is a sign of overfitting. So I am
 increasing both the dropouts from 0.2 to 0.25. Let's see what happens.*
 
-*Original results were lost, but accuracy on the testing data maxed around 0.8370. One thing
+*The accuracy on the testing data maxed around 0.8370. One thing
 to be noted is that it ket bouncing in the 0.80-0.83 ballpark for several thousand epochs.*
-
+---
 #### Run 18
 ```python
 model.add(Dense(20, activation='tanh', input_dim=500))  
@@ -307,9 +308,12 @@ initializers.TruncatedNormal(mean=0.0, stddev=0.05, seed=None)
 ```
 
 *Test loss: 0.416595364207    
-Test accuracy: 0.800414479066 (max around 0.8270)*   
+Test accuracy: 0.800414479066 (max around 0.8270)*     
 
-*This time too, the accuracy kept bouncing around in the 0.80-0.83 ballpark for the last 5000 epochs or so.*
+---
+*This time too, the accuracy kept bouncing around in the 0.80-0.83 ballpark for the last 5000 epochs or so.*  
+
+---
 
 #### Run 19
 ```python
@@ -343,7 +347,7 @@ batch_size = 70
 Test accuracy: 0.839205062011 (max around 0.8457)*
 
 
------------------------------------------------------------------------------------------------
+
 ***THE BEGINNING OF THE END***
 ----------------------------------------------------------------------------------------------
 #### Run 22
@@ -362,14 +366,14 @@ call it a day.* * *fingers crossed* *
 Test accuracy: 0.837345238072    
 Calm Test loss: 0.0760556243008    
 Calm Test accuracy: 1.0*
-
+---
 *I CAN'T BELIEVE THAT THIS IS REAL!!! Okay. So the neural network does know the first thing
 about turbulence. But before I upload this code, I want to make sure that it can correctly
 identify turbulent motion as well. Then I will throw in the towel.*
-
+---
 *Turbulent Test loss: 0.408611278705  
-Turbulent Test accuracy: 0.80676939629*
-
+Turbulent Test accuracy: 0.80676939629*   
+---
 *I am impressed with the performance of this MLP. Even though it did not classify turbulent
 weather as accurately as it classified calm weather, it performed pretty well, proving that
 it is generalizing. It's also worth noting that turbulent data is a little hard to differentiate
