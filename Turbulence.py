@@ -30,7 +30,7 @@ print("Processing the data...")
 new_outputs = dataset[499:, 1:4]
 validation_outputs = testset[499:-1, 1:4]
 
-# Use the following ocmmented lines of code to modify the datasets if
+# Use the following commented lines of code to modify the datasets if
 # you want to change the number of input neurons of the MLP.
 
 # inputs = dataset[:, 0:1]
@@ -88,11 +88,12 @@ print("Test accuracy:", score[1])
 print("Calm Test loss:", score1[0])
 print("Calm Test accuracy:", score1[1])
 
-# This repository comes with a pre-trained model called 'Turbulence_Model.h5'
-# You can use that model if you aren't interested in training your model. In that
+# This repository contains three pre-trained model called 'Turbulence_Model.h5',
+# 'Turbulence_Model_1.h5', and 'Turbulence_Model_2.h5'.
+# You can use those models if you don't want to train your model. In that
 # case, you should look at 'Turb_Test.py', where I load the pre-trained model
 # and evaluate its performance.
 # If you want to save a model that you've trained, then you can use the following
 # line of code.
 
-model.save('Turbulence_Model_2.h5')
+# model.save('Turbulence_Model_2.h5')
