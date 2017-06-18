@@ -9,8 +9,8 @@ I prepared the Turbulence_Training.csv dataset myself, by recording acceleromete
 
 Here, I have documented all the changes that I have made to the hyperparmeters. In each case, I have included only those snippet of code that I have changed, and included the accuracy and loss for each one after training.
 
-##The Training Runs (Hyperparameter Optimization)
-####Run 1
+## The Training Runs (Hyperparameter Optimization)
+#### Run 1
 ```python
 epochs = 1000, batch_size = 100,
 'adam', 'categorical_crossentropy',
@@ -25,7 +25,7 @@ model.add(Dense(3, activation='softmax'))
 *Test loss: 0.712320870909  
 Test accuracy: 0.666692414645*
 
-####Run 2
+#### Run 2
 ```python
 epochs = 5000
 ```
@@ -33,7 +33,7 @@ epochs = 5000
 *Test loss: 0.600918423797   
 Test accuracy: 0.714969874865*
 
-####Run 3
+#### Run 3
 ```python 
 model.add(Dense(30, activation='sigmoid', input_dim=100))
 model.add(Dropout(0.2))
@@ -45,7 +45,7 @@ model.add(Dense(3, activation='softmax'))
 *Test loss: 0.586811004088  
 Test accuracy: 0.727792368299 (actually maxed around 0.7347)*
 
-####Run 4
+#### Run 4
 ```python
 model.add(Dense(30, activation='sigmoid', input_dim=100))
 model.add(Dropout(0.2))
@@ -57,7 +57,7 @@ model.add(Dense(3, activation='softmax'))
 *Test loss: {aborted after remaining stuck for 500 epochs}  
 Test accuracy: {aborted after staying stuck for 500 epochs}*
 
-####Run 5
+#### Run 5
 ```python
 model.add(Dense(32, activation='sigmoid', input_dim=100))
 model.add(Dropout(0.2))
@@ -69,27 +69,32 @@ model.add(Dense(3, activation='softmax'))
 *Test loss: 0.603847062507  
 Test accuracy: 0.705314382821 (actually maxed around 0.7225)*
 
-####Run 6
+#### Run 6
+```python
 model.add(Dense(32, activation='sigmoid', input_dim=100))
 model.add(Dropout(0.2))
 model.add(Dense(10, activation='sigmoid'))
 model.add(Dropout(0.2))
 model.add(Dense(3, activation='softmax'))
+```
 
 Test loss: 0.599734134229
 Test accuracy: 0.71612853391 (actually maxed around 0.7237)
 
-####Run 7
+#### Run 7
+```python
 model.add(Dense(28, activation='sigmoid', input_dim=100))
 model.add(Dropout(0.2))
 model.add(Dense(10, activation='sigmoid'))
 model.add(Dropout(0.2))
 model.add(Dense(3, activation='softmax'))
+```
 
 Test loss: 0.5797
 Test accuracy: 0.7404
 
-####Run 8
+#### Run 8
+```python
 model.add(Dense(28, activation='sigmoid', input_dim=100))
 model.add(Dropout(0.2))
 model.add(Dense(10, activation='sigmoid'))
@@ -97,11 +102,13 @@ model.add(Dropout(0.2))
 model.add(Dense(5, activation='sigmoid'))
 model.add(Dropout(0.2))
 model.add(Dense(3, activation='softmax'))
+```
 
 Test loss: {not recorded}
 Test accuracy: 0.69<accuracy<0.70
 
-####Run 9
+#### Run 9
+```python
 model.add(Dense(28, activation='sigmoid', input_dim=100))
 model.add(Dropout(0.2))
 model.add(Dense(10, activation='sigmoid'))
@@ -109,11 +116,13 @@ model.add(Dropout(0.2))
 model.add(Dense(8, activation='sigmoid'))
 model.add(Dropout(0.2))
 model.add(Dense(3, activation='softmax'))
+```
 
 Test loss: {aborted after staying stuck for 800 epochs}
 Test accuracy: {aborted after staying stuck for 800 epochs}
 
-####Run 10
+#### Run 10
+```python
 model.add(Dense(28, activation='sigmoid', input_dim=100))
 model.add(Dropout(0.2))
 model.add(Dense(10, activation='sigmoid'))
@@ -121,11 +130,13 @@ model.add(Dropout(0.2))
 model.add(Dense(8, activation='relu'))
 model.add(Dropout(0.2))
 model.add(Dense(3, activation='softmax'))
+```
 
 Test loss: {aborted after staying stuck for 1200 epochs}
 Test accuracy: {aborted after staying stuck for 1200 epochs}
 
-####Run 11
+#### Run 11
+```python
 model.add(Dense(28, activation='sigmoid', input_dim=100))
 model.add(Dropout(0.2))
 model.add(Dense(10, activation='sigmoid'))
@@ -133,11 +144,13 @@ model.add(Dropout(0.2))
 model.add(Dense(4, activation='relu'))
 model.add(Dropout(0.2))
 model.add(Dense(3, activation='softmax'))
+```
 
 Test loss: {aborted after staying stuck for 500 epochs}
 Test accuracy: {aborted after staying stuck for 500 epochs}
 
-####Run 12
+#### Run 12
+```python
 model = Sequential()
 model.add(Dense(28, activation='sigmoid', input_dim=100))
 model.add(Dropout(0.2))
@@ -146,6 +159,7 @@ model.add(Dropout(0.2))
 model.add(Dense(4, activation='softplus'))
 model.add(Dropout(0.2))
 model.add(Dense(3, activation='softmax'))
+```
 
 Test loss: 0.615324148614
 Test accuracy: 0.707399969102
@@ -154,7 +168,8 @@ Calm Test accuracy: 0.215362997658
 
 *OVERFITTING!!!*
 
-####Run 13
+#### Run 13
+```python
 model.add(Dense(28, activation='sigmoid', input_dim=100))
 model.add(Dropout(0.4))
 model.add(Dense(10, activation='sigmoid'))
@@ -162,23 +177,23 @@ model.add(Dropout(0.4))
 model.add(Dense(4, activation='softplus'))
 model.add(Dropout(0.2))
 model.add(Dense(3, activation='softmax'))
+```
+*This model learnt nothing in 5000 epochs due to the enormous amounts of dropout.*
 
-{this model learnt nothing in 5000 epochs due to the enormous amounts of dropout}
-
-I think that the reason that the model is not training properly is that the input layer
+*I think that the reason that the model is not training properly is that the input layer
 is only 100 units wide, scanning over a little than 0.5 seconds of data at once. So, I
 am now modifying the data to allow the MLP to have 500 neurons in the input layer. This
-will allow the network to scan 2.5 seconds into the past, which should increase accuracy.
+will allow the network to scan 2.5 seconds into the past, which should increase accuracy.*
 
-As of now, it looks like there is something wrong with the 500-neuron architecture. I
+*As of now, it looks like there is something wrong with the 500-neuron architecture. I
 tried different 2- and 3-layer configurations with ReLU activation, all of which failed
 to converge in 200-500 epochs. Then I tried a sigmoid architecture as well (the one that
 worked the best with 100 input neurons), which also failed to converge. Now I want to
-play around a little with the optimizer.
+play around a little with the optimizer.*
 
 
 --------------------------------------------------------------------------------------------------------------------
-####Here's all the code for Run 14 onwards 
+#### Here's all the code for Run 14 onwards 
 
 ```python
 epochs = 25000  
@@ -235,17 +250,20 @@ model.compile(optimizer='adagrad', loss='binary_crossentropy', metrics=['accurac
 Test loss: 0.43035825716
 Test accuracy: 0.790876241158 (max around 0.7937)
 
-####Run 15
+#### Run 15
+```python
 model.add(Dense(32, activation='tanh', input_dim=500))
 model.add(Dropout(0.2))
 model.add(Dense(11, activation='tanh'))
 model.add(Dropout(0.2))
 model.add(Dense(3, activation='softmax'))
+```
 
 Test loss: 0.440905945767
 Test accuracy: 0.783463519212 (max around 0.7850)
 
-####Run 16
+#### Run 16
+```python
 model.add(Dense(28, activation='tanh', input_dim=500))
 model.add(Dropout(0.2))
 model.add(Dense(10, activation='tanh'))
@@ -253,11 +271,12 @@ model.add(Dropout(0.2))
 model.add(Dense(3, activation='softmax'))
 
  model.compile(optimizer='adadelta', loss='binary_crossentropy', metrics=['accuracy'])
+```
 
 Test loss: 0.344701589349
 Test accuracy: 0.842101072326
 
-####Run 17
+#### Run 17
 ```python
 model.add(Dense(24, activation='tanh', input_dim=500))
 model.add(Dropout(0.2)) 
@@ -276,21 +295,24 @@ increasing both the dropouts from 0.2 to 0.25. Let's see what happens.*
 *Original results were lost, but accuracy on the testing data maxed around 0.8370. One thing
 to be noted is that it ket bouncing in the 0.80-0.83 ballpark for several thousand epochs.*
 
-####Run 18
-`model.add(Dense(20, activation='tanh', input_dim=500))`  
-`model.add(Dropout(0.2))`  
-`model.add(Dense(10, activation='tanh'))`  
-`model.add(Dropout(0.2))`  
-`model.add(Dense(3, activation='softmax'))`  
+#### Run 18
+```python
+model.add(Dense(20, activation='tanh', input_dim=500))  
+model.add(Dropout(0.2))
+model.add(Dense(10, activation='tanh'))  
+model.add(Dropout(0.2))
+model.add(Dense(3, activation='softmax'))
 
-`initializers.TruncatedNormal(mean=0.0, stddev=0.05, seed=None)`
+initializers.TruncatedNormal(mean=0.0, stddev=0.05, seed=None)
+```
 
 Test loss: 0.416595364207  
 Test accuracy: 0.800414479066 (max around 0.8270)   
 
 *This time too, the accuracy kept bouncing around in the 0.80-0.83 ballpark for the last 5000 epochs or so.*
 
-####Run 19
+#### Run 19
+```python
 model = Sequential()
 model.add(Dense(28, activation='tanh', input_dim=500))
 model.add(Dropout(0.2))
@@ -299,18 +321,23 @@ model.add(Dropout(0.2))
 model.add(Dense(3, activation='softmax'))
 
 initializers.TruncatedNormal(mean=1.0, stddev=0.05, seed=None)
+```
 
 Test loss: 0.352511857044
 Test accuracy: 0.83877996005 (max around 0.8404)
 
-####Run 20
+#### Run 20
+```python
 batch_size = 80
+```
 
 Test loss: 0.35624565698
 Test accuracy: 0.838036028407 (max around 0.8442)
 
-####Run 21
+#### Run 21
+```python
 batch_size = 70
+```
 
 Test loss: 0.354777779751
 Test accuracy: 0.839205062011 (max around 0.8457)
@@ -319,8 +346,10 @@ Test accuracy: 0.839205062011 (max around 0.8457)
 -----------------------------------------------------------------------------------------------
 ***THE BEGINNING OF THE END***
 ----------------------------------------------------------------------------------------------
-####Run 22
+#### Run 22
+```python
 batch_size = 60
+```
 
 *I also decided to finally process the Turbulence_Testing_Calm dataset for the
 500-input-neuron MLP, so now there is FINALLY some validation data that the model
@@ -347,8 +376,10 @@ it is generalizing. It's also worth noting that turbulent data is a little hard 
 from moderately turbulent weather, even for a human, so this MLP performed pretty well.*
 
 ---------------------------------------------------------------------------------------------------
-####Run 23
-`batch_size = 50`
+#### Run 23
+```python
+batch_size = 50
+```
 
 Test loss: 0.354188750672  
 Test accuracy: 0.839630161616 (max around 0.8429)  
@@ -357,7 +388,7 @@ Calm Test accuracy: 1.0
 Turbulent Test loss: 0.42392697862  
 Turbulent Test accuracy: 0.800308980824  
 
-####Run 24
+#### Run 24
 ```python
 model.add(Dense(28, activation='tanh', input_dim=500))  
 model.add(Dropout(0.2))
