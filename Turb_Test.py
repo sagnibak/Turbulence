@@ -7,10 +7,10 @@ print("VERSION Valid.Test")
 print("")
 print("Loading data...")
 testtset = np.loadtxt("Turbulence_Testing_Turbulent.csv", delimiter=",")  # testtset is a palindrome too!!!
+validation_inputs_turb = np.loadtxt("Processed_Turbulence_Testing_Turbulent.csv", delimiter=',')
 
 print("Processing the data...")
 validation_outputs_turb = testtset[499:-1, 1:4]
-validation_inputs_turb = np.loadtxt("Processed_Turbulence_Testing_Turbulent.csv", delimiter=',')
 
 print("Loading Model...")
 model = load_model('Turbulence_Model.h5')
