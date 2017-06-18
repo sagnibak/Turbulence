@@ -78,8 +78,8 @@ model.add(Dropout(0.2))
 model.add(Dense(3, activation='softmax'))
 ```
 
-Test loss: 0.599734134229
-Test accuracy: 0.71612853391 (actually maxed around 0.7237)
+*Test loss: 0.599734134229  
+Test accuracy: 0.71612853391 (actually maxed around 0.7237)*
 
 #### Run 7
 ```python
@@ -90,8 +90,8 @@ model.add(Dropout(0.2))
 model.add(Dense(3, activation='softmax'))
 ```
 
-Test loss: 0.5797
-Test accuracy: 0.7404
+*Test loss: 0.5797  
+Test accuracy: 0.7404*
 
 #### Run 8
 ```python
@@ -104,8 +104,8 @@ model.add(Dropout(0.2))
 model.add(Dense(3, activation='softmax'))
 ```
 
-Test loss: {not recorded}
-Test accuracy: 0.69<accuracy<0.70
+*Test loss: {not recorded}  
+Test accuracy: 0.69<accuracy<0.70*
 
 #### Run 9
 ```python
@@ -118,8 +118,8 @@ model.add(Dropout(0.2))
 model.add(Dense(3, activation='softmax'))
 ```
 
-Test loss: {aborted after staying stuck for 800 epochs}
-Test accuracy: {aborted after staying stuck for 800 epochs}
+*Test loss: {aborted after staying stuck for 800 epochs}  
+Test accuracy: {aborted after staying stuck for 800 epochs}*
 
 #### Run 10
 ```python
@@ -132,8 +132,8 @@ model.add(Dropout(0.2))
 model.add(Dense(3, activation='softmax'))
 ```
 
-Test loss: {aborted after staying stuck for 1200 epochs}
-Test accuracy: {aborted after staying stuck for 1200 epochs}
+*Test loss: {aborted after staying stuck for 1200 epochs}  
+Test accuracy: {aborted after staying stuck for 1200 epochs}*
 
 #### Run 11
 ```python
@@ -146,8 +146,8 @@ model.add(Dropout(0.2))
 model.add(Dense(3, activation='softmax'))
 ```
 
-Test loss: {aborted after staying stuck for 500 epochs}
-Test accuracy: {aborted after staying stuck for 500 epochs}
+*Test loss: {aborted after staying stuck for 500 epochs}  
+Test accuracy: {aborted after staying stuck for 500 epochs}*
 
 #### Run 12
 ```python
@@ -161,10 +161,10 @@ model.add(Dropout(0.2))
 model.add(Dense(3, activation='softmax'))
 ```
 
-Test loss: 0.615324148614
-Test accuracy: 0.707399969102
-Calm Test loss: 6.19425047046
-Calm Test accuracy: 0.215362997658 
+*Test loss: 0.615324148614  
+Test accuracy: 0.707399969102  
+Calm Test loss: 6.19425047046  
+Calm Test accuracy: 0.215362997658*   
 
 *OVERFITTING!!!*
 
@@ -247,8 +247,8 @@ model.compile(optimizer='adagrad', loss='binary_crossentropy', metrics=['accurac
 ```
 --------------------------------------------------------------------------------------------------------------------
 
-Test loss: 0.43035825716
-Test accuracy: 0.790876241158 (max around 0.7937)
+*Test loss: 0.43035825716  
+Test accuracy: 0.790876241158 (max around 0.7937)*
 
 #### Run 15
 ```python
@@ -259,8 +259,8 @@ model.add(Dropout(0.2))
 model.add(Dense(3, activation='softmax'))
 ```
 
-Test loss: 0.440905945767
-Test accuracy: 0.783463519212 (max around 0.7850)
+*Test loss: 0.440905945767  
+Test accuracy: 0.783463519212 (max around 0.7850)*
 
 #### Run 16
 ```python
@@ -273,8 +273,8 @@ model.add(Dense(3, activation='softmax'))
  model.compile(optimizer='adadelta', loss='binary_crossentropy', metrics=['accuracy'])
 ```
 
-Test loss: 0.344701589349
-Test accuracy: 0.842101072326
+*Test loss: 0.344701589349  
+Test accuracy: 0.842101072326*
 
 #### Run 17
 ```python
@@ -285,8 +285,8 @@ model.add(Dropout(0.2))
 model.add(Dense(3, activation='softmax'))
 ```
 
-`Test loss: 0.353813521501`  
-`Test accuracy: 0.837770340185`
+*Test loss: 0.353813521501  
+Test accuracy: 0.837770340185*
 
 *Something to be noted about this training run is that the Test Accuracy was actually lower
 than the accuracy on the training data. Possibly, this is a sign of overfitting. So I am
@@ -306,8 +306,8 @@ model.add(Dense(3, activation='softmax'))
 initializers.TruncatedNormal(mean=0.0, stddev=0.05, seed=None)
 ```
 
-Test loss: 0.416595364207  
-Test accuracy: 0.800414479066 (max around 0.8270)   
+*Test loss: 0.416595364207    
+Test accuracy: 0.800414479066 (max around 0.8270)*   
 
 *This time too, the accuracy kept bouncing around in the 0.80-0.83 ballpark for the last 5000 epochs or so.*
 
@@ -323,24 +323,24 @@ model.add(Dense(3, activation='softmax'))
 initializers.TruncatedNormal(mean=1.0, stddev=0.05, seed=None)
 ```
 
-Test loss: 0.352511857044
-Test accuracy: 0.83877996005 (max around 0.8404)
+*Test loss: 0.352511857044  
+Test accuracy: 0.83877996005 (max around 0.8404)*
 
 #### Run 20
 ```python
 batch_size = 80
 ```
 
-Test loss: 0.35624565698
-Test accuracy: 0.838036028407 (max around 0.8442)
+*Test loss: 0.35624565698  
+Test accuracy: 0.838036028407 (max around 0.8442)*
 
 #### Run 21
 ```python
 batch_size = 70
 ```
 
-Test loss: 0.354777779751
-Test accuracy: 0.839205062011 (max around 0.8457)
+*Test loss: 0.354777779751  
+Test accuracy: 0.839205062011 (max around 0.8457)*
 
 
 -----------------------------------------------------------------------------------------------
@@ -358,17 +358,17 @@ out of 6 examples correctly, performs well on this dataset (unlike the 100-input
 MLP that I had designed earlier), then I will finally put this code on GitHub and
 call it a day.* * *fingers crossed* *
 
-Test loss: 0.3521712085    
-Test accuracy: 0.837345238072  
-Calm Test loss: 0.0760556243008  
-Calm Test accuracy: 1.0
+*Test loss: 0.3521712085    
+Test accuracy: 0.837345238072    
+Calm Test loss: 0.0760556243008    
+Calm Test accuracy: 1.0*
 
 *I CAN'T BELIEVE THAT THIS IS REAL!!! Okay. So the neural network does know the first thing
 about turbulence. But before I upload this code, I want to make sure that it can correctly
 identify turbulent motion as well. Then I will throw in the towel.*
 
-Turbulent Test loss: 0.408611278705  
-Turbulent Test accuracy: 0.80676939629
+*Turbulent Test loss: 0.408611278705  
+Turbulent Test accuracy: 0.80676939629*
 
 *I am impressed with the performance of this MLP. Even though it did not classify turbulent
 weather as accurately as it classified calm weather, it performed pretty well, proving that
@@ -381,12 +381,12 @@ from moderately turbulent weather, even for a human, so this MLP performed prett
 batch_size = 50
 ```
 
-Test loss: 0.354188750672  
+*Test loss: 0.354188750672  
 Test accuracy: 0.839630161616 (max around 0.8429)  
 Calm Test loss: 0.0697081955129  
 Calm Test accuracy: 1.0  
 Turbulent Test loss: 0.42392697862  
-Turbulent Test accuracy: 0.800308980824  
+Turbulent Test accuracy: 0.800308980824*  
 
 #### Run 24
 ```python
@@ -397,9 +397,9 @@ model.add(Dropout(0.2))
 model.add(Dense(3, activation='softmax'))
 ```
 
-Test loss: 0.386683792073  
+*Test loss: 0.386683792073  
 Test accuracy: 0.82841809165 (max around 0.8455)    
 Calm Test loss: 0.046252482396  
 Calm Test accuracy: 1.0  
 Turbulent Test loss: 0.459521576364  
-Turbulent Test accuracy: 0.788030181484  
+Turbulent Test accuracy: 0.788030181484*  
