@@ -287,14 +287,17 @@ model.add(Dense(3, activation='softmax'))
 ```
 
 *Test loss: 0.353813521501  
-Test accuracy: 0.837770340185*
+Test accuracy: 0.837770340185*  
+
 ---
+
 *Something to be noted about this training run is that the Test Accuracy was actually lower
 than the accuracy on the training data. Possibly, this is a sign of overfitting. So I am
-increasing both the dropouts from 0.2 to 0.25. Let's see what happens.*
+increasing both the dropouts from 0.2 to 0.25. Let's see what happens.*  
 
 *The accuracy on the testing data maxed around 0.8370. One thing
-to be noted is that it ket bouncing in the 0.80-0.83 ballpark for several thousand epochs.*
+to be noted is that it ket bouncing in the 0.80-0.83 ballpark for several thousand epochs.*  
+
 ---
 #### Run 18
 ```python
@@ -360,24 +363,31 @@ batch_size = 60
 has really NEVER seen before. If the model, which is consistently classifying 5
 out of 6 examples correctly, performs well on this dataset (unlike the 100-input-neuron
 MLP that I had designed earlier), then I will finally put this code on GitHub and
-call it a day.* * *fingers crossed* *
+call it a day.* * *fingers crossed* *  
+
 
 *Test loss: 0.3521712085    
 Test accuracy: 0.837345238072    
 Calm Test loss: 0.0760556243008    
-Calm Test accuracy: 1.0*
+Calm Test accuracy: 1.0*  
+
 ---
+
 *I CAN'T BELIEVE THAT THIS IS REAL!!! Okay. So the neural network does know the first thing
 about turbulence. But before I upload this code, I want to make sure that it can correctly
-identify turbulent motion as well. Then I will throw in the towel.*
+identify turbulent motion as well. Then I will throw in the towel.*  
+
 ---
+
 *Turbulent Test loss: 0.408611278705  
-Turbulent Test accuracy: 0.80676939629*   
+Turbulent Test accuracy: 0.80676939629*  
+   
 ---
+
 *I am impressed with the performance of this MLP. Even though it did not classify turbulent
 weather as accurately as it classified calm weather, it performed pretty well, proving that
 it is generalizing. It's also worth noting that turbulent data is a little hard to differentiate
-from moderately turbulent weather, even for a human, so this MLP performed pretty well.*
+from moderately turbulent weather, even for a human, so this MLP performed pretty well.*  
 
 ---------------------------------------------------------------------------------------------------
 #### Run 23
