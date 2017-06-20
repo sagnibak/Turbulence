@@ -1,11 +1,81 @@
 # Turbulence
 ###### *__Project started on May 27, 2017 by Sagni(c)k Bhattacharya.__*
-This repository contains code to make a neural network that determines if an aircraft is flying through very turbulent, somewhat turbulent, or calm weather based on accelerometer readings. This also includes datasets and unlabeled data that requires processing to be used as datasets. The neural networks are written in Python, using Keras with TensorFlow backend.
+This repository contains code to make a neural network that determines
+ if an aircraft is flying through very turbulent, somewhat turbulent, 
+ or calm weather based on accelerometer readings. This also includes 
+ datasets and unlabeled data that requires processing to be used as 
+ datasets. The neural networks are written in Python, using Keras 
+ with TensorFlow backend.
+ 
+This is a neural network to determine if an airplane is flying 
+through very turbulent, moderately turbulent, or calm weather. 
+Initially, my plan was to use an LSTM, but that meant processing a 
+lot of data, so I went for an MLP instead, which did not need me 
+to process the data as much.
 
-## The Code
-This is a neural network to determine if an airplane is flying through very turbulent, moderately turbulent, or calm weather. Initially, my plan was to use an LSTM, but that meant processing a lot of data, so I went for an MLP instead, which did not need me to process the data as much.
+I prepared the Turbulence_Training.csv dataset myself, by recording 
+accelerometer data from my phone while flying from New Delhi to 
+San Francisco. I made quite a few recordings, but chose a 
+three-minute-long file with a mix of all three kinds of data, 
+and then (arguably foolishly) manually labelled the 37000+ data 
+points as Turb, MTurb or Calm (for  turbulent, moderately turbulent, 
+and calm weather respectively).
 
-I prepared the Turbulence_Training.csv dataset myself, by recording accelerometer data from my phone while flying from New Delhi to San Francisco. I made quite a few recordings, but chose a three-minute-long file with a mix of all three kinds of data, and then (arguably foolishly) manually labelled the 37000+ data points as Turb, MTurb or Calm (for  turbulent, moderately turbulent, and calm weather respectively).
+## The Files
+**Turbulence_Training.csv:** This dataset contains the data 
+that our model is trained and tested with during training.
+
+**Turbulence_Testing_Calm.csv:** This dataset contains examples of 
+ flying through calm conditions only. This is one of the two
+ datasets used to validate the neural network. This is data that
+ the neural network has never seen before. Hence, we can look for
+ things like overfitting, and compare different models during hyperparameter
+ optimization.
+ 
+**Turbulence_Testing_Turbulent.csv:** This dataset is identical to the
+`Turbulence_Testing_Calm.csv` dataset in terms of function. We use
+it to validate the model after training, during hyperparameter 
+optimization. This dataset contains examples of flight through turbulent
+conditions only.
+
+**Processing_Raw_Data.py:** This is a Python file that
+should be executed once. It will process the data in 
+`Turbulence_Testing_Calm.csv`, `Turbulence_Testing_Turbulent.csv`,
+and `Turbulence_Training.csv` to generate three `.csv` files, which
+have the data in the right format for the neural network to
+work with a Multi-Layer Perceptron with 500 input neurons. Check
+out my Instructable ______________ to learn how this file
+works. *WARNING: The `.csv` files generated take up over 756 MB (0.74 GB)
+of space in all. (Once you get deep into deep learning, you'll
+realize that these are some of the smallest datasets you'll ever come across.)*
+
+**Turbulence.py:** This is the heart of this repository. This 
+contains the neural network that we design and train. This has 
+bee discussed in detail in my Instructable _________.
+
+**Turbulence_Model.h5:** This is the first of three pre-trained
+models included in this repository. This will let you study the neural
+network without having to train it first (training can take very
+long if you don't have a good GPU). The code in this one is from
+[training run 22](http://github.com/sagnibak/Turbulence#run-22).
+
+**Turbulence_Model_1.h5:** This is the second pre-trained model,
+with code from [training run 23](http://github.com/sagnibak/Turbulence#run-23).
+
+**Turbulence_Model_1.h5:** This is the last pre-trained model,
+with code from [training run 24](http://github.com/sagnibak/Turbulence#run-24).
+
+**LICENCE:** I want to share this code freely for everyone to 
+look at and use. All I want is credit, in case you modify and
+redistribute the code. Neither am I asking for any money,
+nor am I claiming any liability in case something goes wrong
+on your end; I am more than happy to help, but I am not
+getting sued. I have made sure that all the code in the 
+`master` branch works exactly as it should.
+
+**.gitignore:** This file contains the names of those files
+that will not be uploaded to the repository. For learning
+putposes, this is not important.
 
 
 
