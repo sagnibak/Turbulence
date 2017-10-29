@@ -21,6 +21,15 @@ and then (arguably foolishly) manually labelled the 37000+ data
 points as Turb, MTurb or Calm (for  turbulent, moderately turbulent, 
 and calm weather respectively).
 
+I finished working on this repository on June 20, 2017. Since then,
+I have learned a lot more about neural networks, and I have even done
+research on neural networks. I have come to realize that although the
+code here *works*, it is very, I mean *very* noobish. The architecture
+of the neural network (a vanilla multilayer perceptron) is ancient, 
+and the code is not good a model for beginners to follow. I am, however, 
+letting this repo live because a) I worked hard to make it, and b) 
+for all the noobs out there: you're not alone :smiley:
+
 ## The Files
 **Turbulence_Training.csv:** This dataset contains the data 
 that our model is trained and tested with during training.
